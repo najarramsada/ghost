@@ -1,0 +1,316 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Host your Ghost blog on Github using Docker container</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e372330b75">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="GHOST @ GITHUB">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Host your Ghost blog on Github using Docker container">
+    <meta property="og:description" content="Github is amazing and so is the Ghost blogging platform. Ever wondered if you could host your Ghost blog on Github pages?Well you can.This very own blog was produced using Ghost and is hosted on Github pages.Lets get down to it.I got my inspiration from this">
+    <meta property="og:url" content="http://localhost:2368/host-your-ghost-blog-on-github-using-docker-container/">
+    <meta property="og:image" content="http://localhost:2368/content/images/2018/09/ghost-logo.png">
+    <meta property="article:published_time" content="2018-09-25T07:26:27.000Z">
+    <meta property="article:modified_time" content="2018-09-25T07:26:27.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Host your Ghost blog on Github using Docker container">
+    <meta name="twitter:description" content="Github is amazing and so is the Ghost blogging platform. Ever wondered if you could host your Ghost blog on Github pages?Well you can.This very own blog was produced using Ghost and is hosted on Github pages.Lets get down to it.I got my inspiration from this">
+    <meta name="twitter:url" content="http://localhost:2368/host-your-ghost-blog-on-github-using-docker-container/">
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2018/09/ghost-logo.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Najar Ramsada">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="857">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "GHOST @ GITHUB",
+        "logo": "https://casper.ghost.org/v1.0.0/images/ghost-logo.svg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Najar Ramsada",
+        "url": "http://localhost:2368/author/najar/",
+        "sameAs": []
+    },
+    "headline": "Host your Ghost blog on Github using Docker container",
+    "url": "http://localhost:2368/host-your-ghost-blog-on-github-using-docker-container/",
+    "datePublished": "2018-09-25T07:26:27.000Z",
+    "dateModified": "2018-09-25T07:26:27.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/2018/09/ghost-logo.png",
+        "width": 2000,
+        "height": 857
+    },
+    "description": "Github is amazing and so is the Ghost blogging platform. Ever wondered if you could host your Ghost blog on Github pages?Well you can.This very own blog was produced using Ghost and is hosted on Github pages.Lets get down to it.I got my inspiration from this",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <script src="../public/ghost-sdk.min.js?v=e372330b75"></script>
+<script>
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "abc6f100000a"
+});
+</script>
+    <meta name="generator" content="Ghost 2.1">
+    <link rel="alternate" type="application/rss+xml" title="GHOST @ GITHUB" href="../rss/index.html">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-okaidia.css" rel="stylesheet">
+
+<meta name="google-site-verification" content="ZFnggYyjgf-IPRZV2E0H7FnbPcCPvBJ9IU91tYE6yY8">
+<meta name="keywords" content="Najar Ramsada,Najar,Ramsada,najarramsada,
+docker,ghost,github,Infrastructure Engineer,blogs,cloud">
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="https://casper.ghost.org/v1.0.0/images/ghost-logo.svg" alt="GHOST @ GITHUB"></a>
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="../">Home</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+        </div>
+            <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2018-09-25">25 September 2018</time>
+                </section>
+                <h1 class="post-full-title">Host your Ghost blog on Github using Docker container</h1>
+            </header>
+
+            <figure class="post-full-image" style="background-image: url(../content/images/2018/09/ghost-logo.png)">
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>Github is amazing and so is the Ghost blogging platform. Ever wondered if you could host your Ghost blog on Github pages?</p><p>Well you can.</p><p>This very own blog was produced using Ghost and is hosted on Github pages.</p><h2 id="lets-get-down-to-it-"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Lets get down to it.</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h2><p>I got my inspiration from this site. <a href="https://github.com/paladini/ghost-on-github-pages">https://github.com/paladini/ghost-on-github-pages</a></p><p>All I have done is made it simpler using Docker Image to combine the official Ghost Docker image and Ghost-on-github-pages scripts in one image.</p><p>Credits to Ghost Docker community for <a href="https://hub.docker.com/_/ghost/">Ghost docker image</a>.</p><p>Credits to Fernando Paladini for <a href="https://github.com/paladini/ghost-on-github-pages">Ghost-on-Github-pages</a> scripts.</p><h2 id="requirements"><strong>Requirements</strong></h2><ul><li>Docker installation is required, make sure your host has Docker installed and you can run docker containers.</li><li>New Github Repository to publish the ghost blog on github. (This is optional, you can run the ghost blog as is on host server)</li></ul><h2 id="install"><strong>Install</strong></h2><h3 id="to-run-ghost-blog"><strong>To Run Ghost blog</strong></h3><p>Run docker-compose command to bring up the docker container.</p><pre><code>docker-compose up -d</code></pre><p>Contents of docker-compose.yml file</p><pre><code>version: '3'
+
+services:
+  ghost:
+    image: najarramsada/ghost-on-github
+    container_name: ghost #name your container for easy identification.
+    restart: always
+    ports:
+      - 8880:2368 #Ghost is running on 2368, map a custom port to your host server.
+    volumes:
+      - ghost:/home/node/.ghost/content	#Always a good idea to have a volume for persistent data. If not used, each time you start the container a new instance of blog will be deployed  
+
+volumes:
+  ghost:</code></pre><h3 id="to-publish-the-ghost-blog-on-your-github-pages-"><strong>To publish the Ghost blog on your github pages.</strong></h3><p>Go to <a href="https://github.com/">https://github.com/</a> and create a new repository.</p><p>Copy the HTTPS URL of your repository, e.g. <code>https://github.com/najarramsada/ghost-on-github.git</code></p><h4 id="for-first-run-below-commands-are-required-to-establish-the-github-identity"><strong>For first run below commands are required to establish the github identity</strong></h4><p>Run these after starting the docker container.</p><pre><code>docker exec -it &lt;Container name or id&gt; gosu node git config --global user.email "&lt;Your Github useremail&gt;"
+
+docker exec -it &lt;Container name or id&gt; gosu node git config --global user.name "&lt;Your Github username&gt;"
+</code></pre><h4 id="publish-the-blog"><strong>Publish the blog</strong></h4><pre><code>docker exec -it &lt;Container name or id&gt; gosu node /tmp/install.sh
+</code></pre><p>For first commit you will need to supply the Github repository URL which was copied in earlier step (e.g. <a href="https://github.com/najarramsada/ghost-on-github.git">https://github.com/najarramsada/ghost-on-github.git</a>).</p><p>This script will also prompt you to login to github, enter your username and password.</p><p>Wait till the repository is pushed to Github pages, than goto settings page of your github repository and it will show you the URL it is published as.</p><p>Your blog is live on github pages.</p><h2 id="ongoing-updates"><strong>Ongoing Updates</strong></h2><p>Downside of hosting Ghost blog on Github is that each time you write a new post, you need to update the static pages on github, to do that just run below command on host where your Ghost docker is running. This is a same command that was used for first commit and applies for ongoing update.</p><pre><code>docker exec -it &lt;Container name or id&gt; gosu node /tmp/install.sh</code></pre><h2 id="contact"><strong>Contact</strong></h2><p><code>ramsadanajar@gmail.com</code></p>
+                </div>
+            </section>
+
+
+            <footer class="post-full-footer">
+
+
+                    
+<section class="author-card">
+        <span class="avatar-wrapper"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"></path></g></svg>
+</span>
+    <section class="author-card-content">
+        <h4 class="author-card-name"><a href="../author/najar/">Najar Ramsada</a></h4>
+            <p>Read <a href="../author/najar/">more posts</a> by this author.</p>
+    </section>
+</section>
+<div class="post-full-footer-right">
+    <a class="author-card-button" href="../author/najar/">Read More</a>
+</div>
+
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../">
+            <span>GHOST @ GITHUB</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">Host your Ghost blog on Github using Docker container</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Host%20your%20Ghost%20blog%20on%20Github%20using%20Docker%20container&amp;url=http://localhost:2368/host-your-ghost-blog-on-github-using-docker-container/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/host-your-ghost-blog-on-github-using-docker-container/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress id="reading-progress" class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">GHOST @ GITHUB</a> © 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=e372330b75"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('#reading-progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+
+});
+</script>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-okaidia.css" rel="stylesheet">
+
+</body>
